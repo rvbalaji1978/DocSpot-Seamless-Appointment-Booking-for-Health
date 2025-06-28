@@ -1,8 +1,3 @@
-Absolutely! Here’s your **cleaned-up, professional `README.md` file** — no emojis, in a single block for easy copy-pasting:
-
----
-
-```markdown
 # DocSpot – Seamless Appointment Booking for Healthcare
 
 ## Team Details
