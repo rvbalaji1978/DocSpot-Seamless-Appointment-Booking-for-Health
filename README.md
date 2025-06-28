@@ -113,9 +113,8 @@ NODE_ENV=development
 
 This project was developed as part of the SmartInternz Short-Term Internship 2025, a guided full-stack learning program.
 Special thanks to SmartBridge and SmartInternz for their support and mentorship.
-
 ## Author
 
-Sri Vaishnavi B
-Full Stack Developer Intern – SmartInternz
-[LinkedIn](www.linkedin.com/in/sri-vaishnavi-bhaskara) | [GitHub](https://github.com/srivaishnavi26)
+**Sri Vaishnavi B**  
+*Full Stack Developer Intern – SmartInternz*  
+[LinkedIn](https://www.linkedin.com/in/sri-vaishnavi-bhaskara) | [GitHub](https://github.com/srivaishnavi26)
