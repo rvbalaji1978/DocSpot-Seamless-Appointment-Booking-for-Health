@@ -15,12 +15,16 @@ exports.getAllDoctors = catchAsync(async (req, res, next) => {
   res.status(200).json({ status: "success", data: doctors });
 });
 
-/* ─────────── Get doctor via userId or _id ─────────── */
+/* ─────────── Get doctor by userId or doctorId ─────────── */
 exports.getDoctorByUserId = catchAsync(async (req, res, next) => {
-  const doctor = await Doctor.findOne({ userId: req.params.userId });
+  let doctor = await Doctor.findOne({ userId: req.params.userId });
+
+  // Fallback: check _id as well (when userId isn't found)
+  if (!doctor) {
+    doctor = await Doctor.findById(req.params.userId);
+  }
 
   if (!doctor) {
-    console.warn("Doctor not found for userId:", req.params.userId);
     return res.status(404).json({
       status: "fail",
       message: "Doctor not found",
@@ -33,10 +37,26 @@ exports.getDoctorByUserId = catchAsync(async (req, res, next) => {
   });
 });
 
+/* ─────────── Get doctor by MongoDB _id ─────────── */
+exports.getDoctorById = catchAsync(async (req, res, next) => {
+  const doctor = await Doctor.findById(req.params.id);
+
+  if (!doctor) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Doctor not found by ID",
+    });
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: doctor,
+  });
+});
+
 /* ─────────── Doctor Signup ─────────── */
 exports.doctorSignup = catchAsync(async (req, res, next) => {
   const newDoctor = await Doctor.create(req.body);
-
   res.status(201).json({
     status: "success",
     message: "Doctor added successfully. Please wait for admin approval.",
@@ -56,10 +76,18 @@ exports.doctorAppointments = catchAsync(async (req, res, next) => {
   });
 });
 
+/* ─────────── Get booked appointments ─────────── */
+exports.getBookedAppointments = catchAsync(async (req, res, next) => {
+  const appointments = await Appointment.find({ doctorId: req.params.doctorId });
+  res.status(200).json({
+    status: "success",
+    data: appointments,
+  });
+});
+
 /* ─────────── Check Booking Availability ─────────── */
 exports.checkBookingAvailability = catchAsync(async (req, res, next) => {
   const { doctorId, date, time } = req.body;
-
   const from = new Date(`${date}T${time}`);
   const to = new Date(from.getTime() + 30 * 60 * 1000);
 
@@ -85,7 +113,6 @@ exports.checkBookingAvailability = catchAsync(async (req, res, next) => {
 /* ─────────── Book Appointment ─────────── */
 exports.bookAppointment = catchAsync(async (req, res, next) => {
   const appointment = await Appointment.create(req.body);
-
   res.status(201).json({
     status: true,
     message: "Appointment booked successfully!",
@@ -96,7 +123,6 @@ exports.bookAppointment = catchAsync(async (req, res, next) => {
 /* ─────────── Change Appointment Status ─────────── */
 exports.changeAppointmentStatus = catchAsync(async (req, res, next) => {
   const { appointmentId, status } = req.body;
-
   const appointment = await Appointment.findByIdAndUpdate(
     appointmentId,
     { status },
@@ -121,26 +147,5 @@ exports.updateDoctor = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: updatedDoctor,
-  });
-});
-/* ─────────── Get doctor by MongoDB _id ─────────── */
-exports.getDoctorByUserId = catchAsync(async (req, res, next) => {
-  let doctor = await Doctor.findOne({ userId: req.params.userId });
-
-  // Fallback: check _id as well (when userId isn't found)
-  if (!doctor) {
-    doctor = await Doctor.findById(req.params.userId);
-  }
-
-  if (!doctor) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Doctor not found",
-    });
-  }
-
-  res.status(200).json({
-    status: "success",
-    data: doctor,
   });
 });

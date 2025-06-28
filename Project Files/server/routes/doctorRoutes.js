@@ -1,10 +1,10 @@
-const express    = require("express");
-const router     = express.Router();
-const auth       = require("../controllers/authController");
+const express = require("express");
+const router = express.Router();
+const auth = require("../controllers/authController");
 const doctorCtrl = require("../controllers/doctorController");
-const adminCtrl  = require("../controllers/adminController");
+const adminCtrl = require("../controllers/adminController");
 
-// ✅ Temporary public route (for testing or development)
+// ✅ Temporary public route (supports both userId and doctorId)
 router.get("/find-by-user/:userId", doctorCtrl.getDoctorByUserId);
 
 // ───────────── PUBLIC ENDPOINTS ─────────────
@@ -13,14 +13,19 @@ router.get("/", doctorCtrl.getAllDoctors);
 router.get("/approved-doctors", doctorCtrl.getAllApprovedDoctors);
 
 /* ─────────── Get doctor by linked USER ID ─────────── */
-router.get(
-  "/by-user/:userId",
-  auth.protect,
-  doctorCtrl.getDoctorByUserId
-);
+router.get("/by-user/:userId", auth.protect, doctorCtrl.getDoctorByUserId);
 
-/* ───────────── PROTECTED ENDPOINTS ───────────── */
+// ✅ ✅ NEW: Get doctor by doctor ID directly (used by fallback logic)
+router.get("/:id", doctorCtrl.getDoctorById);
+
+// ───────────── PROTECTED ENDPOINTS ─────────────
 router.use(auth.protect); // All routes below require login
+
+// ✅ ✅ NEW: Booked appointments for doctor
+router.get(
+  "/booked-appointments/:doctorId",
+  doctorCtrl.getBookedAppointments
+);
 
 /* Doctor OR Admin: Get all appointments for a doctor */
 router.get(
@@ -55,6 +60,5 @@ router.get(
   auth.restrictTo("admin"),
   adminCtrl.getAllAppointments
 );
-
 
 module.exports = router;
