@@ -118,9 +118,4 @@ Special thanks to SmartBridge and SmartInternz for their support and mentorship.
 
 Sri Vaishnavi B
 Full Stack Developer Intern – SmartInternz
-[LinkedIn] (www.linkedin.com/in/sri-vaishnavi-bhaskara) | [GitHub] (https://github.com/srivaishnavi26)
-
-## License
-
-This project is licensed under the MIT License.
-
+[LinkedIn](www.linkedin.com/in/sri-vaishnavi-bhaskara) | [GitHub](https://github.com/srivaishnavi26)
