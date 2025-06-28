@@ -1,113 +1,120 @@
-DocSpot – Seamless Appointment Booking for Healthcare
+# DocSpot – Seamless Appointment Booking for Healthcare
 
-Team Details:
-Team ID     : LTVIP2025TMID58841  
-Team Size   : 4  
-Team Leader : Sri Vaishnavi B  
-Team Member : Rv Balaji Sai  
-Team Member : Bollam Adarsh  
-Team Member : B Arjun Dev
+## Team Details
 
-DocSpot is a full-stack doctor appointment booking system built during the SmartInternz 2025 Virtual Internship Program, powered by SmartBridge. This MERN stack project simplifies how patients book appointments while offering robust tools for doctors and admins to manage schedules and services.
+- Team ID: LTVIP2025TMID58841  
+- Team Size: 4  
+- Team Leader: Sri Vaishnavi B  
+- Team Members:  
+  - Rv Balaji Sai  
+  - Bollam Adarsh  
+  - B Arjun Dev  
 
-Project Overview
+## Project Overview
 
-DocSpot enhances healthcare accessibility by securely connecting patients with verified doctors. With a clean UI and intuitive workflows, the system supports:
-- Role-based access for users, doctors, and administrators
-- Real-time appointment availability
-- Notification management
-- Admin control over doctor verification and system operations
+DocSpot is a full-stack doctor appointment booking system built during the SmartInternz 2025 Virtual Internship Program, powered by SmartBridge.  
+This MERN stack project streamlines the appointment process for patients while providing robust tools for doctors and administrators to manage availability, appointments, and user roles.
 
-Tech Stack
+## Features
 
-Frontend:
-- React.js
-- Redux Toolkit
-- TypeScript
-- Material UI (MUI)
-- React Router DOM
-- Formik & Yup
-
-Backend:
-- Node.js
-- Express.js
-- MongoDB + Mongoose
-- JWT Authentication
-- Bcrypt.js
-
-Key Features
-
-User:
-- Register & login
+### User
+- Register and log in
 - Apply as a doctor
 - Book appointments
 - View appointment history
 - Receive real-time notifications
 
-Doctor:
-- Login & manage availability
-- View patient appointments
-- Update appointment status
+### Doctor
+- Log in and manage availability
+- View scheduled appointments
+- Update appointment statuses
 
-Admin:
+### Admin
 - Approve or reject doctor applications
 - Manage users and doctors
+- Oversee platform activity
 
-Installation & Setup
+## Tech Stack
 
-1. Clone the Repository:
-git clone https://github.com/your-username/docspot.git
-cd docspot
+### Frontend
+- React.js  
+- Redux Toolkit  
+- TypeScript  
+- Material UI (MUI)  
+- React Router DOM  
+- Formik & Yup  
 
-2. Backend Setup:
-cd server
+### Backend
+- Node.js  
+- Express.js  
+- MongoDB with Mongoose  
+- JWT Authentication  
+- Bcrypt.js  
+
+## Folder Structure
+
+```
+
+Project Files/
+├── client/     # React frontend
+└── server/     # Express backend
+
+````
+
+## Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/srivaishnavi26/DocSpot-Seamless-Appointment-Booking-for-Health.git
+cd DocSpot-Seamless-Appointment-Booking-for-Health
+````
+
+### 2. Backend Setup
+
+```bash
+cd "Project Files/server"
 npm install
 npm run dev
+```
 
-3. Frontend Setup:
-cd client
+### 3. Frontend Setup
+
+```bash
+cd "../client"
 npm install
 npm start
+```
 
-4. Environment Variables:
+### 4. Environment Variables
 
-Create a .env file inside the server/ directory with the following content:
+Create a `.env` file in the `server/` directory with the following content:
+
+```
 PORT=5000
 MONGO_URI=your_mongo_connection_string
 JWT_SECRET=your_jwt_secret
 NODE_ENV=development
+```
 
-Folder Structure
+## Authentication & Authorization
 
-/docspot
-├── /client     # React frontend
-└── /server     # Express backend
+* JWT-based authentication
+* Middleware for route protection
+* Role-based access control (user, doctor, admin)
 
-Authentication & Authorization
+## Deployment
 
-- JWT-based authentication
-- Middleware for protected routes
-- Role-based access control: user, doctor, admin
+* Frontend: Vercel or Netlify
+* Backend: Render or Railway
+* Database: MongoDB Atlas
 
-Deployment
+## Acknowledgements
 
-The application can be deployed using:
-- Frontend: Vercel / Netlify
-- Backend: Render / Railway
-- Database: MongoDB Atlas
+This project was developed as part of the SmartInternz Short-Term Internship 2025, a guided full-stack learning program.
+Special thanks to SmartBridge and SmartInternz for their support and mentorship.
+## Author
 
-Acknowledgements
-
-This project is part of the SmartInternz Short-Term Internship 2025, a guided full-stack development learning initiative.
-
-Special thanks to SmartBridge and SmartInternz for the opportunity and mentorship.
-
-Author
-
-Sri Vaishnavi B  
-Full Stack Developer Intern – SmartInternz  
-LinkedIn | GitHub
-
-License
-
-This project is licensed under the MIT License.
+**Sri Vaishnavi B**  
+*Full Stack Developer Intern – SmartInternz*  
+[LinkedIn](https://www.linkedin.com/in/sri-vaishnavi-bhaskara) | [GitHub](https://github.com/srivaishnavi26)
