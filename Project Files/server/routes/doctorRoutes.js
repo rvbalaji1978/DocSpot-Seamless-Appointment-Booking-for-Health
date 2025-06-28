@@ -56,7 +56,5 @@ router.get(
   adminCtrl.getAllAppointments
 );
 
-/* Public endpoint to get a doctor by ID (keep last to avoid conflict) */
-router.get("/:id", doctorCtrl.getDoctorById);
 
 module.exports = router;

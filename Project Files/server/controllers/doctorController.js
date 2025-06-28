@@ -123,3 +123,24 @@ exports.updateDoctor = catchAsync(async (req, res, next) => {
     data: updatedDoctor,
   });
 });
+/* ─────────── Get doctor by MongoDB _id ─────────── */
+exports.getDoctorByUserId = catchAsync(async (req, res, next) => {
+  let doctor = await Doctor.findOne({ userId: req.params.userId });
+
+  // Fallback: check _id as well (when userId isn't found)
+  if (!doctor) {
+    doctor = await Doctor.findById(req.params.userId);
+  }
+
+  if (!doctor) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Doctor not found",
+    });
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: doctor,
+  });
+});
