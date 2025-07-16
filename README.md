@@ -115,6 +115,6 @@ This project was developed as part of the SmartInternz Short-Term Internship 202
 Special thanks to SmartBridge and SmartInternz for their support and mentorship.
 ## Author
 
-**Sri Vaishnavi B**  
+**Venkata Balaji Sai R**  
 *Full Stack Developer Intern – SmartInternz*  
-[LinkedIn](https://www.linkedin.com/in/sri-vaishnavi-bhaskara) | [GitHub](https://github.com/srivaishnavi26)
+[LinkedIn]((https://www.linkedin.com/in/rv-balaji-sai)) | [GitHub]((https://github.com/rvbalaji1978))
