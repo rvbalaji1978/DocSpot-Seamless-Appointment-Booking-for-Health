@@ -117,4 +117,4 @@ Special thanks to SmartBridge and SmartInternz for their support and mentorship.
 
 **Venkata Balaji Sai R**  
 *Full Stack Developer Intern – SmartInternz*  
-[LinkedIn]((https://www.linkedin.com/in/rv-balaji-sai)) | [GitHub]((https://github.com/rvbalaji1978))
+[LinkedIn](https://www.linkedin.com/in/rv-balaji-sai) | [GitHub](https://github.com/rvbalaji1978)
